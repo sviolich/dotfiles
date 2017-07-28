@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# Install dotfiles by creating symlinks in home dir to repo.
+
+# Enter script dir (so can be run from anywhere).
+SCRIPT_DIR=$(realpath "$(dirname "${BASH_SOURCE}")")
+cd "${SCRIPT_DIR}"
+
+# For regular files (not dirs) beginning with dot:
+for filename in .*; do
+  if [[ -f "${filename}" ]]; then
+
+    # If home already has symlink, skip (.).
+    if [[ -L "${HOME}/${filename}" ]]; then
+      echo -n '.'
+
+    # If home has file, back up and replace (r) with symlink.
+    elif [[ -f "${HOME}/${filename}" ]]; then
+      echo -n 'r'
+      mv "${HOME}/${filename}" "${HOME}/${filename}.bak"
+      ln -s "${SCRIPT_DIR}/${filename}" "${HOME}"
+
+    # Else create (c) symlink.
+    else
+      echo -n 'c'
+      ln -s "${SCRIPT_DIR}/${filename}" "${HOME}"
+    fi
+
+    echo " ${filename}"
+  fi
+done
