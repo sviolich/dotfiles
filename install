@@ -29,3 +29,8 @@ for filename in .*; do
     echo " ${filename}"
   fi
 done
+
+# Show day and date in clock; hide language selector.
+gsettings set com.canonical.indicator.datetime show-date true
+gsettings set com.canonical.indicator.datetime show-day true
+gsettings set com.canonical.indicator.keyboard visible false
