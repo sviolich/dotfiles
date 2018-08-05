@@ -1,0 +1,93 @@
+MAX_GIT_BRANCH_LEN=20
+
+RED=9
+YELLOW=11
+GREEN=10
+GREY=248
+
+# prompt data
+
+working_dir() {
+  pwd \
+    | sed "s|${HOME}|~|" \
+    | awk -F\/ '{print $(NF-1),$(NF)}' \
+    | sed 's/ /\//' \
+    | sed 's|/~||'
+}
+
+git_conflicts() {
+  git ls-files --unmerged
+}
+
+git_changes() {
+  git status --porcelain 2> /dev/null
+}
+
+git_branch() {
+  branch="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
+  if [ ${#branch} -gt $MAX_GIT_BRANCH_LEN ]; then
+    branch="${branch:0:$MAX_GIT_BRANCH_LEN}…"
+  fi
+  echo "$branch"
+}
+
+# prompt rendering
+
+set_color() {
+  local color=$1
+  PS1+='\['  # open non-printing
+  PS1+='\e['  # open color
+  if [ -n "$color" ]; then
+    PS1+="38;5;$color"  # set foreground
+  else
+    PS1+='0'  # reset
+  fi
+  PS1+='m'  # close color
+  PS1+='\]'  # close non-printing
+}
+
+render_text() {
+  local text=$1
+  local color=$2
+  set_color $color
+  PS1+="$text "  # note trailing space
+}
+
+render_exit_status() {
+  local exit_status=$1
+  if [ $exit_status = 0 ]; then
+    render_text '✓'  $GREEN
+  else
+    render_text '✗'  $RED
+  fi
+}
+
+render_git_branch() {
+  local color
+  if [ -n "$(git_branch)" ]; then
+    if [ -n "$(git_conflicts)" ]; then
+      color=$RED
+    elif [ -n "$(git_changes)" ]; then
+      color=$YELLOW
+    else
+      color=$GREEN
+    fi
+    render_text "$(git_branch)" $color
+  fi
+}
+
+set_bash_prompt() {
+  local exit_status=$?  # must be first
+  local color=$GREY
+  PS1=''
+  render_text '[' $color
+  render_text '\A' $color  # time in hh:mm 24h
+  render_exit_status $exit_status
+  render_text '\u' $color  # user
+  render_text "$(working_dir)" $color
+  render_git_branch
+  render_text ']' $color
+  render_text '\n\$'
+}
+
+PROMPT_COMMAND=set_bash_prompt
