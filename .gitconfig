@@ -2,7 +2,13 @@
 	email = stephenviolich@gmail.com
 	name = Steve Violich
 [alias]
-	co = checkout
 	br = branch
 	ci = commit
+	co = checkout
 	st = status
+[push]
+	default = simple
+[core]
+	editor = vim
+[color "diff"]
+	meta = yellow
