@@ -1,16 +1,15 @@
-1. Clone repo and run install script:
+To clone via HTTPS and run install script:
 ```
 git clone https://github.com/sviolich/dotfiles.git
 cd dotfiles
 ./install
 ```
 
-2. Dump SSH key and [add to GitHub account](https://github.com/settings/ssh/new):
+To switch repo to SSH:
 ```
 cat ~/.ssh/id_rsa.pub
-```
-
-3. Switch repo to SSH:
-```
+# ***Manually add SSH key on GitHub.***
 git remote set-url origin git@github.com:sviolich/dotfiles.git
 ```
+
+[Add SSH key on GitHub](https://github.com/settings/ssh/new)
