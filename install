@@ -1,38 +1,88 @@
 #!/bin/bash
-#
-# Install dotfiles by creating symlinks in home dir to repo.
 
-# xxx
+set -o errexit
 
-# Enter script dir (so can be run from anywhere).
-SCRIPT_DIR=$(realpath "$(dirname "${BASH_SOURCE}")")
-cd "${SCRIPT_DIR}"
+APT_PACKAGES='
+  git
+  vim
+'
 
-# For regular files (not dirs) beginning with dot:
-for filename in .*; do
-  if [[ -f "${filename}" ]]; then
+SSH_KEY_FILE="$HOME/.ssh/id_rsa"
 
-    # If home already has symlink, skip (.).
-    if [[ -L "${HOME}/${filename}" ]]; then
-      echo -n '.'
+SYMLINK_FILES='
+  .bash_aliases
+  .bash_prompt
+  .bashrc
+  .gitconfig
+  .vimrc
+'
 
-    # If home has file, back up and replace (r) with symlink.
-    elif [[ -f "${HOME}/${filename}" ]]; then
-      echo -n 'r'
-      mv "${HOME}/${filename}" "${HOME}/${filename}.bak"
-      ln -s "${SCRIPT_DIR}/${filename}" "${HOME}"
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
-    # Else create (c) symlink.
+script_file="$(basename "$0")"
+log_file="$script_file.log"
+
+main() {
+  create_log_file
+  install_apt_packages
+  symlink_files
+  create_ssh_keys
+}
+
+create_log_file() {
+  echo "creating log file $log_file"
+  > "$log_file"
+}
+
+install_apt_packages() {
+  echo 'updating apt'
+  sudo apt-get update >> "$log_file"
+
+  echo 'upgrading apt packages'
+  sudo apt-get upgrade --yes >> "$log_file"
+  
+  for package in $APT_PACKAGES; do
+    if [ "$(is_apt_package_installed "$package")" = 'false' ]; then
+      echo "installing $package"
+      sudo apt-get install --yes "$package" >> "$log_file"
     else
-      echo -n 'c'
-      ln -s "${SCRIPT_DIR}/${filename}" "${HOME}"
+      echo "($package already installed)"
     fi
+  done
+}
 
-    echo " ${filename}"
+symlink_files() {
+  for file in $SYMLINK_FILES; do
+    if [ ! -h "$HOME/$file" ]; then
+      if [ -e "$HOME/$file" ]; then
+        echo "backing up original $file"
+        mv "$HOME/$file" "$HOME/$file.bak"
+      fi
+      echo "symlinking $file"
+      ln --symbolic "$script_dir/$file" "$HOME"
+    else
+      echo "($file already symlinked)"
+    fi
+  done
+}
+
+create_ssh_keys() {
+  if [ ! -e "$SSH_KEY_FILE" ]; then
+    echo 'creating ssh keys'
+    ssh-keygen -f "$SSH_KEY_FILE" -N '' > /dev/null
+  else
+    echo '(ssh keys already created)'
   fi
-done
+}
 
-# Show day and date in clock; hide language selector.
-gsettings set com.canonical.indicator.datetime show-date true
-gsettings set com.canonical.indicator.datetime show-day true
-gsettings set com.canonical.indicator.keyboard visible false
+is_apt_package_installed() {
+  local package="$1"
+  dpkg --get-selections | grep "$package\s" > /dev/null
+  if [ $? -eq 0 ]; then
+    echo 'true'
+  else
+    echo 'false'
+  fi
+}
+
+main
