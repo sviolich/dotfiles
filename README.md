@@ -16,9 +16,9 @@ Installation creates an SSH key pair. Dump public key:
 cat ~/.ssh/id_rsa.pub
 ```
 
-Manually [add SSH key on GitHub](https://github.com/settings/ssh/new)
+then manually [add SSH key](https://github.com/settings/ssh/new) on GitHub.
 
-Set remote URL to SSH:
+Finally, set remote URL to SSH:
 
 ```
 git remote set-url origin git@github.com:sviolich/dotfiles.git
