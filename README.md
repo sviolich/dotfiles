@@ -10,15 +10,13 @@ cd dotfiles
 
 # Switching to SSH
 
-Installation creates an SSH key pair.
-
-Dump public key:
+Installation creates an SSH key pair. Dump public key:
 
 ```
 cat ~/.ssh/id_rsa.pub
 ```
 
-[Add key on GitHub](https://github.com/settings/ssh/new).
+Manually [add SSH key on GitHub](https://github.com/settings/ssh/new)
 
 Set remote URL to SSH:
 
