@@ -4,6 +4,7 @@ set -o errexit
 
 APT_PACKAGES='
   git
+  gnome-tweaks
   vim
 '
 
