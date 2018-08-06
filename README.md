@@ -8,8 +8,9 @@ dotfiles/install
 TODO apt
 - google-chrome-stable
 - nautilus-dropbox
-- steam-installer OR steam?!? <-- not at work?
+- steam  <-- not at work
 
 TODO snap
 - pycharm-professional
 - spotify
+- minecraft  <-- not at work
