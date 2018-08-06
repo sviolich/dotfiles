@@ -1,25 +1,22 @@
 # Installation
 
-Clone via HTTPS and run install script:
+Assuming fresh Ubuntu 18.04.1 LTS:
+
+1. Create and copy SSH public key:
 
 ```
-git clone https://github.com/sviolich/dotfiles.git
-cd dotfiles
-./install
-```
-
-# Switching to SSH
-
-Installation creates an SSH key pair. Dump public key:
-
-```
+ssh-keygen -f ~/.ssh/id_rsa -N ''
 cat ~/.ssh/id_rsa.pub
 ```
 
-then manually [add SSH key](https://github.com/settings/ssh/new) on GitHub.
+2. (I download Chrome here)
 
-Finally, set remote URL to SSH:
+3. Manually [add SSH key](https://github.com/settings/ssh/new) on Github
+
+4. Install git, clone repo, run install script:
 
 ```
-git remote set-url origin git@github.com:sviolich/dotfiles.git
+sudo apt install --yes git
+git clone git@github.com:sviolich/dotfiles.git
+dotfiles/install
 ```
