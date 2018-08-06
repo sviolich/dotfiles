@@ -3,12 +3,9 @@
 set -o errexit
 
 APT_PACKAGES='
-  git
   gnome-tweaks
   vim
 '
-
-SSH_KEY_FILE="$HOME/.ssh/id_rsa"
 
 SYMLINK_FILES='
   .bash_aliases
@@ -31,7 +28,6 @@ main() {
   create_log_file
   install_apt_packages
   symlink_files
-  create_ssh_keys
 }
 
 create_log_file() {
@@ -69,15 +65,6 @@ symlink_files() {
       debug "$file already symlinked"
     fi
   done
-}
-
-create_ssh_keys() {
-  if [ ! -e "$SSH_KEY_FILE" ]; then
-    echo 'creating ssh keys'
-    ssh-keygen -f "$SSH_KEY_FILE" -N '' > /dev/null
-  else
-    debug 'ssh keys already created'
-  fi
 }
 
 debug() {
