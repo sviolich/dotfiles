@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -o errexit
+set -o verbose
+
+cd ~
+
+if [ ! -e dotfiles ]; then
+  git clone git@github.com:sviolich/dotfiles.git
+fi
+ 
+if [ ! -h .bashrc ]; then
+  mv .bashrc .bashrc.bak
+fi
+
+ln --force --symbolic dotfiles/.bash_aliases
+ln --force --symbolic dotfiles/.bash_prompt
+ln --force --symbolic dotfiles/.bashrc
+ln --force --symbolic dotfiles/.gitconfig
+ln --force --symbolic dotfiles/.vimrc
