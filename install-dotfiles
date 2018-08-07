@@ -5,10 +5,6 @@ set -o verbose
 
 cd ~
 
-if [ ! -e dotfiles ]; then
-  git clone git@github.com:sviolich/dotfiles.git
-fi
- 
 if [ ! -h .bashrc ]; then
   mv .bashrc .bashrc.bak
 fi
