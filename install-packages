@@ -11,7 +11,7 @@ sudo apt-get install --yes gdebi-core  # for chrome
 sudo apt-get install --yes gnome-tweaks
 sudo apt-get install --yes nautilus-dropbox
 sudo apt-get install --yes vim
-if [ $1 = '--games' ]; then
+if [ "$1" = '--games' ]; then
   sudo add-apt-repository multiverse  # for steam
   sudo apt-get install --yes steam
 fi
@@ -20,7 +20,7 @@ fi
 sudo snap refresh
 sudo snap install pycharm-professional --classic
 sudo snap install spotify
-if [ $1 = '--games' ]; then
+if [ "$1" = '--games' ]; then
   sudo snap install minecraft
 fi
 
