@@ -1,33 +1,31 @@
-# Installation
+# Requirements
 
-1. Install software (including git):
+- git
+- SSH key added to GitHub account
+
+To configure these on a fresh Ubuntu 18.04.1 LTS, run:
 
 ```
-wget https://raw.githubusercontent.com/sviolich/dotfiles/master/install-software
-bash install-software
-rm install-software
-```
+sudo apt-get install --yes git
 
-2. Dump SSH public key (create if need be):
-  
-```
 if [ ! -e ~/.ssh/id_rsa ]; then
   ssh-keygen -f ~/.ssh/id_rsa -N ''
 fi
 cat ~/.ssh/id_rsa.pub
 ```
 
-3. Manually [add SSH key](https://github.com/settings/ssh/new) on GitHub.
+Then copy the SSH key and [add on GitHub](https://github.com/settings/ssh/new). 
 
-4. Clone repo and install dotfiles as symlinks to repo:
+# Installation
+
+Clone the repo and run the install scripts:
 
 ```
 git clone git@github.com:sviolich/dotfiles.git ~/dotfiles
+~/dotfiles/install-packages  #--games
 ~/dotfiles/install-dotfiles
 ```
 
-5. Install games if not at work 🙂:
+Dotfiles will be symlinked into the home directory.
 
-```
-~/dotfiles/install-games
-```
+The install scripts are idempotent, so update and re-run them at will.
