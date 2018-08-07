@@ -19,10 +19,15 @@ cat ~/.ssh/id_rsa.pub
 
 3. Manually [add SSH key](https://github.com/settings/ssh/new) on GitHub.
 
-4. Clone repo and install dotfiles, and games if not at work 🙂:
+4. Clone repo and install dotfiles as symlinks to repo:
 
 ```
 git clone git@github.com:sviolich/dotfiles.git ~/dotfiles
 ~/dotfiles/install-dotfiles
-#~/dotfiles/install-games
+```
+
+5. Install games if not at work 🙂:
+
+```
+~/dotfiles/install-games
 ```
