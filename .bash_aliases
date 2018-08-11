@@ -1,5 +1,9 @@
 # bash
 alias c='clear'
+alias l='ls'
+alias l1='ls -1'
+alias la='ls -a'
+alias ll='ls -l'
 alias sba='source ~/.bash_aliases'
 alias t='set_terminal_title'
 alias vba='vim ~/.bash_aliases'
