@@ -119,3 +119,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh

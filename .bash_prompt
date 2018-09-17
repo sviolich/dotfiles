@@ -3,6 +3,8 @@ MAX_GIT_BRANCH_LEN=20
 RED=9
 YELLOW=11
 GREEN=10
+CYAN=14
+BLUE=12
 GREY=248
 
 # prompt data
@@ -62,6 +64,12 @@ render_exit_status() {
   fi
 }
 
+render_virtual_env() {
+  if [ -n "$VIRTUAL_ENV" ]; then
+    render_text "$(basename "$VIRTUAL_ENV")" $CYAN
+  fi
+}
+
 render_git_branch() {
   local color
   if [ -n "$(git_branch)" ]; then
@@ -84,6 +92,7 @@ set_bash_prompt() {
   render_text '\A' $color  # time in hh:mm 24h
   render_exit_status $exit_status
   render_text '\u' $color  # user
+  render_virtual_env
   render_text "$(working_dir)" $color
   render_git_branch
   render_text ']' $color
