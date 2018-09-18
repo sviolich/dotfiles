@@ -47,11 +47,13 @@ alias ssh-svdev='ssh -i ~/.ssh/svdev.pem ubuntu@sleepyfox.io'
 
 # tictrac
 alias b='docker-compose exec local_shell bash'
+#alias co="colout --all '  File ./app/.*\n.*' 11 normal"
+alias co="colout --all '  File ./usr/.*\n.*' 8 normal"
 alias d='docker'
 alias dre="docker rm \$(docker ps --filter status=exited --quiet)"
 alias dc='docker-compose'
 alias dcu='docker-compose up local_shell'
-alias m='docker-compose exec local_shell python3 manage.py'
 alias e='docker-compose exec local_shell'
+alias m='docker-compose exec local_shell python3 manage.py'
 alias t='docker-compose exec local_shell python3 manage.py test'
 alias tt='cd ~/tictrac/tictrac/tictrac_api'
