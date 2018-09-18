@@ -25,7 +25,7 @@ ls \
   ~
 ' 
 alias sba='source ~/.bash_aliases'
-alias t='set_terminal_title'
+alias stt='set_terminal_title'
 alias vba='vim ~/.bash_aliases'
 alias vbr='vim ~/.bashrc'
 
