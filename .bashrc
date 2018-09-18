@@ -58,7 +58,7 @@ fi
 
 if [ "$color_prompt" = yes ]; then
   if [ -f ~/.bash_prompt ]; then
-    . ~/.bash_prompt
+    source ~/.bash_prompt
   else
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
   fi
@@ -106,7 +106,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
+  source ~/.bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -114,12 +114,15 @@ fi
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
+    source /usr/share/bash-completion/bash_completion
   elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+    source /etc/bash_completion
   fi
 fi
 
 # virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+if [ -f "$HOME/.local/bin/virtualenvwrapper.sh" ]; then
+  export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+  export WORKON_HOME=$HOME/.virtualenvs
+  source "$HOME/.local/bin/virtualenvwrapper.sh"
+fi

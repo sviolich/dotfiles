@@ -1,12 +1,33 @@
 # bash
+alias '..'='cd ..'
 alias c='clear'
 alias l='ls'
-alias l1='ls -1'
-alias la='ls -a'
-alias ll='ls -l'
+alias l1='ls --format single-column'
+alias la='ls --almost-all'
+alias ll='ls --format long'
+alias lm='
+ls \
+  --format single-column \
+  --ignore anaconda3 \
+  --ignore Desktop \
+  --ignore Documents \
+  --ignore Downloads \
+  --ignore Dropbox \
+  --ignore examples.desktop \
+  --ignore Music \
+  --ignore Pictures \
+  --ignore Public \
+  --ignore snap \
+  --ignore Steam \
+  --ignore Templates \
+  --ignore Videos \
+  --ignore virtualenvs \
+  ~
+' 
 alias sba='source ~/.bash_aliases'
 alias t='set_terminal_title'
 alias vba='vim ~/.bash_aliases'
+alias vbr='vim ~/.bashrc'
 
 set_terminal_title() {
   printf "\e]2;$1\a"
