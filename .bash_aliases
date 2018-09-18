@@ -52,6 +52,6 @@ alias dre="docker rm \$(docker ps --filter status=exited --quiet)"
 alias dc='docker-compose'
 alias dcu='docker-compose up local_shell'
 alias m='docker-compose exec local_shell python3 manage.py'
-alias r='docker-compose exec local_shell'
+alias e='docker-compose exec local_shell'
 alias t='docker-compose exec local_shell python3 manage.py test'
 alias tt='cd ~/tictrac/tictrac/tictrac_api'
