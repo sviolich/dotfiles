@@ -121,8 +121,8 @@ if ! shopt -oq posix; then
 fi
 
 # virtualenvwrapper
-if [ -f "$HOME/.local/bin/virtualenvwrapper.sh" ]; then
+if [ -f $HOME/.local/bin/virtualenvwrapper.sh ]; then
   export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
   export WORKON_HOME=$HOME/.virtualenvs
-  source "$HOME/.local/bin/virtualenvwrapper.sh"
+  source $HOME/.local/bin/virtualenvwrapper.sh
 fi
