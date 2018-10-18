@@ -28,7 +28,7 @@ alias gl='git log --decorate=no --max-count=10 --oneline'
 alias glb='git log --decorate=no --max-count=10 --oneline develop..'
 alias glm='git log --author=violich --decorate=no --max-count=10 --oneline'
 alias gm='git merge'
-alias gpl='git pull'
+alias gpl='git pull && git submodule update'
 alias gps='git push'
 alias gpsu="git push --set-upstream origin \$(get_current_git_branch_name)"
 alias gs='git status'

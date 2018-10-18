@@ -1,14 +1,15 @@
-[user]
-	email = stephenviolich@gmail.com
-	name = Steve Violich
 [alias]
-	br = branch
-	ci = commit
-	co = checkout
-	st = status
-[push]
-	default = simple
-[core]
-	editor = vim
+  br = branch
+  ci = commit
+  co = checkout
+  st = status
 [color "diff"]
-	meta = yellow
+  meta = yellow
+[core]
+  editor = vim
+[push]
+  default = simple
+  recurseSubmodules = check
+[user]
+  email = stephenviolich@gmail.com
+  name = Steve Violich
