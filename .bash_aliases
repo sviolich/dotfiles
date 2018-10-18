@@ -49,8 +49,9 @@ alias ssh-svdev='ssh -i ~/.ssh/svdev.pem ubuntu@sleepyfox.io'
 
 # tictrac
 alias b='docker-compose exec local_shell bash'
-#alias co="colout --all '  File ./app/.*\n.*' 11 normal"
-alias co="colout --all '  File ./usr/.*\n.*' 8 normal"
+alias co="co1 | co2"
+alias co1="colout --all ' {2}File .*\n(?: {4}.*)?' 8 normal"
+alias co2="colout --all ' {2}File \"/app/.*\n(?: {4}.*)?' 15 normal"
 alias d='docker'
 alias dre="docker rm \$(docker ps --filter status=exited --quiet)"
 alias dc='docker-compose'
