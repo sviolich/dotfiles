@@ -9,8 +9,8 @@ if [ ! -h .bashrc ]; then
   mv .bashrc .bashrc.bak
 fi
 
-ln --force --symbolic dotfiles/.bash_aliases
-ln --force --symbolic dotfiles/.bash_prompt
-ln --force --symbolic dotfiles/.bashrc
-ln --force --symbolic dotfiles/.gitconfig
-ln --force --symbolic dotfiles/.vimrc
+ln --force --symbolic projects/dotfiles/.bash_aliases
+ln --force --symbolic projects/dotfiles/.bash_prompt
+ln --force --symbolic projects/dotfiles/.bashrc
+ln --force --symbolic projects/dotfiles/.gitconfig
+ln --force --symbolic projects/dotfiles/.vimrc
