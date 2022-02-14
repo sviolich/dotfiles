@@ -1,0 +1,21 @@
+[alias]
+  br = branch
+  ci = commit
+  co = checkout
+  st = status
+
+[color "diff"]
+  meta = yellow
+
+[core]
+  editor = vim
+  # todo: consider installing delta for fancier git diffs
+  # https://github.com/dandavison/delta
+  # pager = delta
+
+[push]
+  default = simple
+
+[user]
+  email = stephenviolich@gmail.com
+  name = Steve Violich

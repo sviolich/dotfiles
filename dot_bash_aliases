@@ -1,0 +1,93 @@
+# config 
+alias sa='source ~/.bash_aliases'
+alias sp='source ~/.p10k.zsh'
+alias sz='source ~/.zshrc'
+alias va='vim ~/.bash_aliases && source ~/.bash_aliases'
+alias vp='vim ~/.p10k.zsh && source .p10k.zsh'
+alias vz='vim ~/.zshrc && source ~/.zshrc'
+
+# default options
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias ls='ls --color=auto --group-directories-first'
+
+# abbreviations
+alias c='clear'
+alias g='git'
+alias l='ls'
+alias p='python3'
+alias t='task'
+alias v='vim'
+alias w='vim -c "VimwikiIndex"'  # wiki
+
+# ls
+alias la='ls --almost-all'
+alias lal='ls --almost-all -l'
+alias la1='ls --almost-all -1'
+alias ll='ls -l'
+alias lla='ls --almost-all -l'
+alias l1='ls -1'
+alias l1a='ls --almost-all -1'
+
+# git
+alias ga='git add'
+alias gaa='git add .'  # Git Add All
+alias gan='git add --intent-to-add'  # Git Add iNtent
+alias gana='git add --intent-to-add .'  # Git Add iNtent All
+alias gap='git add --patch'
+alias gapa='git add --patch .'  # Git Add Patch All
+alias gb='git branch'
+alias gbD='git branch -d'
+alias gC='git commit'
+alias gCf='git commit --fixup'
+alias gCfh='git commit --fixup HEAD'
+alias gCm='git commit --message'
+alias gc='git checkout'
+alias gcb='git checkout -b'
+alias gcl='git checkout -'  # Git Checkout Last
+alias gcm='git checkout master'
+alias gcp='git cherry-pick'
+alias gd='git diff'
+alias gdc='git diff --name-only master'  # Git Diff Changes
+alias gds='git diff --cached'  # Git Diff Staged
+alias gl='git log --decorate=no --max-count=10 --oneline'
+alias glg='git log --decorate=no --graph --max-count=10 --oneline'  # Git Log Graph
+alias gll='git log --decorate=no --max-count=10'  # Git Log Long
+alias glm='git log --author=violich --decorate=no --max-count=10 --oneline'  # Git Log Mine
+alias gP='git push'
+alias gPF='git push --force-with-lease'
+alias gPu='git push --set-upstream origin $(git branch --show-current)'  # Git Push set Upstream
+alias gp='git pull'
+alias gpf='gh pr_files'
+alias gR='git rebase --autosquash --interactive'
+alias gRc='git rebase --continue'
+alias gRm='git rebase --autosquash --interactive origin/master'  # Git Rebase Master
+alias gRm2='git rebase --autosquash --interactive origin/main'  # Git Rebase Main
+alias gR2='git restore'
+alias gs='git status'
+alias gsC='git stash clear'
+alias gsD='git stash drop'
+alias gsP='git stash pop'
+alias gsa='git stash apply'
+alias gsl='git stash list'
+alias gsp='git stash push'
+alias gspm='git stash push --message'
+alias gssp='git stash show --patch'
+alias gs2='git show'
+
+# taskwarrior
+alias ta="task add"
+alias tas="task_helper add_subtask"
+alias te="task edit"
+alias tD="task delete"
+alias td="task done"
+alias tm="task modify"
+alias tmn="task modify +next"
+alias tr="clear; task"
+alias tr5="clear; task limit:5"
+alias ts="task start"
+alias tu="task_helper unblock"
+
+# keyboard shortcut helpers (else wiki shortcuts)
+# todo tilix
