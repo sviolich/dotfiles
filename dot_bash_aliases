@@ -1,10 +1,8 @@
-# config 
-alias sa='source ~/.bash_aliases'
-alias sp='source ~/.p10k.zsh'
-alias sz='source ~/.zshrc'
-alias va='vim ~/.bash_aliases && source ~/.bash_aliases'
-alias vp='vim ~/.p10k.zsh && source .p10k.zsh'
-alias vz='vim ~/.zshrc && source ~/.zshrc'
+# shell config
+alias ea='chezmoi edit ~/.bash_aliases'                # edit aliases
+alias ep='chezmoi edit ~/.p10k.zsh'                    # edit prompt
+alias es='chezmoi edit ~/.zshrc'                       # edit shell
+alias rs='chezmoi --verbose apply && source ~/.zshrc'  # reload shell
 
 # default options
 alias egrep='egrep --color=auto'
@@ -12,8 +10,9 @@ alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto --group-directories-first'
 
-# abbreviations
+# programs
 alias c='clear'
+alias ch='chezmoi'
 alias g='git'
 alias l='ls'
 alias p='python3'
@@ -21,14 +20,10 @@ alias t='task'
 alias v='vim'
 alias w='vim -c "VimwikiIndex"'  # wiki
 
-# ls
-alias la='ls --almost-all'
-alias lal='ls --almost-all -l'
-alias la1='ls --almost-all -1'
-alias ll='ls -l'
-alias lla='ls --almost-all -l'
-alias l1='ls -1'
-alias l1a='ls --almost-all -1'
+# chezmoi
+alias cha='chezmoi --verbose apply'
+alias chc='chezmoi cd'
+alias che='chezmoi edit'
 
 # git
 alias ga='git add'
@@ -75,6 +70,15 @@ alias gsp='git stash push'
 alias gspm='git stash push --message'
 alias gssp='git stash show --patch'
 alias gs2='git show'
+
+# ls
+alias la='ls --almost-all'
+alias lal='ls --almost-all -l'
+alias la1='ls --almost-all -1'
+alias ll='ls -l'
+alias lla='ls --almost-all -l'
+alias l1='ls -1'
+alias l1a='ls --almost-all -1'
 
 # taskwarrior
 alias ta="task add"
