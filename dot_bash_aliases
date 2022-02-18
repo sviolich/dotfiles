@@ -82,6 +82,7 @@ alias l1a='ls --almost-all -1'
 # taskwarrior
 # - operations
 alias ta="task add"
+alias tah="task add project:home"
 alias tas="task_helper add_subtask"
 alias te="task edit"
 alias tD="task delete"
@@ -93,9 +94,13 @@ alias ts="task start"
 alias tu="task_helper unblock"
 # - reports
 alias tr="clear; task"                            # task report
-alias tr5="clear; task limit:5"                   # task report limit 5
+alias tra="clear; task active"                    # task report active
 alias trc="clear; task completed end:today"       # task report completed
+alias trc="clear; task completed end:today"       # task report completed (today)
+alias trca="clear; task completed"                # task report completed all
 alias trcy="clear; task completed end:yesterday"  # task report completed yesterday
+alias trw="clear; task waiting"                   # task report waiting (i.e. hidden)
+alias tr5="clear; task limit:5"                   # task report limit 5
 
 # keyboard shortcut helpers (else wiki shortcuts)
 # todo tilix
