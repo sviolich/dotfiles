@@ -1,7 +1,11 @@
-# shell config
+# dotfiles/chezmoi
+alias cha='chezmoi --verbose apply'
+alias chc='chezmoi cd'
+alias che='chezmoi edit'
 alias ea='chezmoi edit ~/.bash_aliases'                # edit aliases
 alias ep='chezmoi edit ~/.p10k.zsh'                    # edit prompt
 alias es='chezmoi edit ~/.zshrc'                       # edit shell
+alias ev='chezmoi edit ~/.vimrc'                       # edit vim
 alias rs='chezmoi --verbose apply && source ~/.zshrc'  # reload shell
 
 # default options
@@ -19,11 +23,6 @@ alias p='python3'
 alias t='task'
 alias v='vim'
 alias w='vim -c "VimwikiIndex"'  # wiki
-
-# chezmoi
-alias cha='chezmoi --verbose apply'
-alias chc='chezmoi cd'
-alias che='chezmoi edit'
 
 # git
 alias ga='git add'
