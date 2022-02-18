@@ -8,11 +8,10 @@ set expandtab
 set number
 
 "width guides: 50/72 for git commits, 80 for general
-set colorcolumn=73,81
+set colorcolumn=81
 highlight ColorColumn ctermbg=7
 
-"begin vimwiki requirements
+"vimwiki requires the following 3 lines:
 set nocompatible
 filetype plugin on
 syntax on 
-"end vimwiki requirements
