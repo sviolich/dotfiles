@@ -1,10 +1,11 @@
-# dotfiles/chezmoi
+# dotfiles & chezmoi
 alias cha='chezmoi --verbose apply'
 alias chc='chezmoi cd'
 alias che='chezmoi edit'
 alias ea='chezmoi edit ~/.bash_aliases'                # edit aliases
 alias ep='chezmoi edit ~/.p10k.zsh'                    # edit prompt
 alias es='chezmoi edit ~/.zshrc'                       # edit shell
+alias et='chezmoi edit ~/.taskrc'                      # edit taskrc
 alias ev='chezmoi edit ~/.vimrc'                       # edit vim
 alias rs='chezmoi --verbose apply && source ~/.zshrc'  # reload shell
 
@@ -12,7 +13,7 @@ alias rs='chezmoi --verbose apply && source ~/.zshrc'  # reload shell
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
-alias ls='ls --color=auto --group-directories-first'
+alias ls='ls --color=auto --group-directories-first --human-readable'
 
 # programs
 alias c='clear'
@@ -20,9 +21,16 @@ alias ch='chezmoi'
 alias g='git'
 alias l='ls'
 alias p='python3'
+alias sus='sus pm-suspend'
 alias t='task'
+alias T='timew'
 alias v='vim'
 alias w='vim -c "VimwikiIndex"'  # wiki
+
+# bluetooth
+alias be='bluetoothctl connect 14:3F:A6:26:8E:A7'  # Bluetooth Earbuds
+alias bh='bluetoothctl connect 04:5D:4B:EC:4A:98'  # Bluetooth Headphones
+alias bs='bluetoothctl connect C0:28:8D:90:40:2A'  # Bluetooth Speaker
 
 # git
 alias ga='git add'
@@ -72,35 +80,71 @@ alias gs2='git show'
 
 # ls
 alias la='ls --almost-all'
-alias lal='ls --almost-all -l'
-alias la1='ls --almost-all -1'
-alias ll='ls -l'
-alias lla='ls --almost-all -l'
-alias l1='ls -1'
-alias l1a='ls --almost-all -1'
+alias lal='ls --almost-all --format=verbose'
+alias la1='ls --almost-all --format=single-column'
+alias ll='ls --format=verbose'
+alias lla='ls --almost-all --format=verbose'
+alias lt='ls --sort=time'
+alias l1='ls --format=single-column'
+alias l1a='ls --almost-all --format=single-column'
 
 # taskwarrior
 # - operations
 alias ta="task add"
+alias taa="task add project:admin"
+alias tac="task add project:comedy"
+alias taf="task add project:fitness"
 alias tah="task add project:home"
 alias tas="task_helper add_subtask"
 alias te="task edit"
 alias tD="task delete"
 alias td="task done"
+alias ti="task ids"
 alias tl="task log"
 alias tm="task modify"
 alias tmn="task modify +next"
 alias ts="task start"
-alias tu="task_helper unblock"
+alias tu="clear; task_helper unblock_task"
 # - reports
 alias tr="clear; task"                            # task report
 alias tra="clear; task active"                    # task report active
 alias trc="clear; task completed end:today"       # task report completed
-alias trc="clear; task completed end:today"       # task report completed (today)
 alias trca="clear; task completed"                # task report completed all
 alias trcy="clear; task completed end:yesterday"  # task report completed yesterday
+alias trt="clear; task +TODAY"                    # task report today
 alias trw="clear; task waiting"                   # task report waiting (i.e. hidden)
+alias tr1="clear; task limit:1"                   # task report limit 1
 alias tr5="clear; task limit:5"                   # task report limit 5
+
+# timewarrior
+alias Td='clear; timew day'
+alias Td2='clear; timew day yesterday - tomorrow'
+alias Tr='clear; timew summary | nosec'
+alias Tri='clear; timew summary :ids | nosec'
+alias Tr2='clear; timew summary yesterday - tomorrow | nosec'
+alias Tr2i='clear; timew summary yesterday - tomorrow :ids | nosec'
+alias Trd='clear; timew day'
+alias Trd2='clear; timew day yesterday - tomorrow'
+alias Trm='clear; timew month'
+alias Trw='clear; timew week'
+alias Tw='clear; timew week'
+alias TD='timew delete'
+alias Tg='timew tag'
+alias TG='timew untag'
+alias Tl='timew lengthen'
+alias TL='timew shorten'
+alias Tm='timew move'
+alias Tms='timew modify start'
+alias Tme='timew modify end'
+alias Ts='timew start'
+alias TS='timew stop'
+alias Tt='timew track'
 
 # keyboard shortcut helpers (else wiki shortcuts)
 # todo tilix
+
+# misc
+alias eur="echo 'Type Menu+E+= for € symbol.'"
+alias gbp="echo 'Type Menu+L+- for £ symbol.'"
+alias nosec='sed "s/\([0-9]\+:[0-9]\+\):[0-9]\+/   \1/g"'
+alias up="sudo apt update && sudo apt upgrade && sudo apt dist-upgrade && sudo apt autoremove"
