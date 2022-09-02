@@ -7,11 +7,36 @@ set expandtab
 "line numbers
 set number
 
-"width guides: 50/72 for git commits, 80 for general
+"width guide: 80+1 for general, 50+1/72+1 for git commits
 set colorcolumn=81
-highlight ColorColumn ctermbg=7
+"highlight color: 0/7 for solarized dark/light
+"""highlight ColorColumn ctermbg=0
+
+set ignorecase
+
+"solarized
+set background=dark
+colorscheme solarized
 
 "vimwiki requires the following 3 lines:
 set nocompatible
 filetype plugin on
 syntax on 
+
+"vimwiki options, especially re markdown
+let g:vimwiki_list = [{'auto_toc': 1, 'ext': '.md', 'links_space_char': '-', 'path': 'wiki', 'syntax': 'markdown'}]
+
+"highlighting
+highlight VimwikiBold cterm=bold ctermfg=6
+highlight VimwikiBoldChar ctermfg=6
+highlight VimwikiCellSeparator ctermfg=10
+highlight VimwikiCode ctermfg=6
+highlight VimwikiHeader1 cterm=bold ctermfg=7
+highlight VimwikiHeader2 cterm=bold ctermfg=3
+highlight VimwikiHeader3 cterm=bold ctermfg=2
+highlight VimwikiHeaderChar ctermfg=7
+highlight VimwikiItalic cterm=italic ctermfg=6
+highlight VimwikiItalicChar ctermfg=6
+highlight VimwikiLink ctermfg=4
+highlight VimwikiList cterm=bold ctermfg=6
+highlight VimwikiPre ctermfg=6
