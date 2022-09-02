@@ -17,8 +17,14 @@ data.location=~/.task
 editor=vim
 
 # Report customisations
-report.completed.columns=uuid.short,depends,priority,project,tags,recur.indicator,description
-report.completed.labels=UUID,Deps,P,Project,Tags,R,Description
+report.completed.columns=uuid.short,depends,priority,project,recur.indicator,description,tags
+report.completed.labels=UUID,Ds,P,Project,R,Description,Tags
+
+# report.next.columns=id,depends,priority,project,tags,recur,due.relative,description
+# report.next.labels=ID,Deps,P,Proj,Tags,R,Due,Description
+report.next.columns=id,depends,due.relative,priority,project,recur,description,tags
+report.next.labels=ID,Ds,Due,P,Project,R,Description,Tags
+
 urgency.blocking.coefficient=5
 
 # Color theme (uncomment one to use)
@@ -33,7 +39,13 @@ urgency.blocking.coefficient=5
 #include /usr/share/taskwarrior/dark-yellow-green.theme
 #include /usr/share/taskwarrior/dark-gray-256.theme
 #include /usr/share/taskwarrior/dark-gray-blue-256.theme
-#include /usr/share/taskwarrior/solarized-dark-256.theme
-include /usr/share/taskwarrior/solarized-light-256.theme
-include ~/code/taskwarrior-mods/solarized-light-256-mods.theme
+include /usr/share/taskwarrior/solarized-dark-256.theme
+include ~/code/taskwarrior-mods/solarized-dark-256-mods.theme
+#include /usr/share/taskwarrior/solarized-light-256.theme
+#include ~/code/taskwarrior-mods/solarized-light-256-mods.theme
 #include /usr/share/taskwarrior/no-color.theme
+
+news.version=2.6.0
+
+search.case.sensitive=no
+
