@@ -11,12 +11,19 @@
 #
 #   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 
-# Colors per solarized light theme.
-FG_HI=10
-FG=11
-FG_LO=14
-BG_HI=7
-BG=15
+# Solarized dark.
+FG_HI=14
+FG=12
+FG_LO=10
+BG_HI=0
+BG=8
+# Solarized light.
+# FG_HI=10
+# FG=11
+# FG_LO=14
+# BG_HI=7
+# BG=15
+# Solarized core.
 RED=1
 ORA=9
 YEL=3
